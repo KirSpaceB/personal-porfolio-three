@@ -1,10 +1,11 @@
-import React, {useRef} from 'react';
+import {useRef} from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import earth_texture from '../public/textures/earth_texture.jpg';
+import { Mesh } from 'three';
 
 export default function Earth() {
-  const earthRef = useRef();
+  const earthRef = useRef<Mesh>(null);
 
   useFrame(() => {
     if(earthRef.current) {
