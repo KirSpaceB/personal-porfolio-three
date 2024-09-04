@@ -1,13 +1,21 @@
 import React, {useRef} from 'react';
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import earth_texture from '../public/textures/earth_texture.jpg';
 
 export default function Earth() {
+  const earthRef = useRef();
+
+  useFrame(() => {
+    if(earthRef.current) {
+      earthRef.current.rotation.y  += 0.001;
+    }
+  })
+
+
   const earthTexture = useLoader(THREE.TextureLoader, earth_texture);
   return (
-    <mesh>
+    <mesh ref={earthRef}>
       <sphereGeometry args={[2,32,32]}/>
       <meshStandardMaterial map={earthTexture}/>
     </mesh>
