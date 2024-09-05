@@ -2,6 +2,7 @@ import {Canvas} from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import Earth from './components/Earth';
 import "./App.css"
+import Mars from './components/Mars';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           }}
         >
           <Earth/>
+          <Mars/>
           <ambientLight intensity={7}/>
           <directionalLight position={[5,5,5]} intensity={6}/>
           <OrbitControls enableRotate={true} enableZoom={true}/>

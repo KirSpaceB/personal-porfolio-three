@@ -13,8 +13,8 @@ export default function Earth() {
     }
   })
 
-
   const earthTexture = useLoader(THREE.TextureLoader, earth_texture);
+  
   return (
     <mesh ref={earthRef}>
       <sphereGeometry args={[2,32,32]}/>
