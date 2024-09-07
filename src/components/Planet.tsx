@@ -1,9 +1,10 @@
-import { Html } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import isWithinRange from '../tooling/isWithinRange';
 import '../css/PlanetModal.css';
 import * as THREE from 'three';
+import PlanetModal from './PlanetModal';
 
 export default function Planet({distance, size, speed, color} : {distance:number, size:number, speed:number, color:string}) {
   const planetRef = useRef<THREE.Mesh>(null);
@@ -57,14 +58,11 @@ export default function Planet({distance, size, speed, color} : {distance:number
       <meshStandardMaterial color={color} />
       {/* Modal logic */}
       {/* Traditional modal */}
-      {showModal && (
-        <Html position={[2, 1, 0]}>
-        <div id="HelloWorldDiv">
-          <p>test</p>
-          <button id="HelloWorldDivButton">Close Window</button>
-        </div>
-      </Html>
-      )}
+      <AnimatePresence>
+        {showModal && (
+          <PlanetModal key="planet-modal"/>
+        )}
+      </AnimatePresence>
     </mesh>
   );
 }
