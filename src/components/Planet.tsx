@@ -11,7 +11,6 @@ export default function Planet({distance, size, speed, color} : {distance:number
   const [showModal, setShowModal] = useState<boolean>(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [targetRotation, setTargetRotation] = useState(0);
-  const [closestDistance, setClosestDistance] = useState<number | null>(null); // Track the closest distance
 
   const {camera} = useThree();
   console.log(camera)
