@@ -42,7 +42,8 @@ export default function Planet({distance, size, speed, color} : {distance:number
       const planetPosition = planetRef.current.position;
       
       // I have an idea why don't we just dynamically get the distance
-      if (isWithinRange(planetPosition.x, -4, -3) && isWithinRange(planetPosition.z, 3, 6)) {
+      if (isWithinRange(planetPosition.x, -1, 1) && isWithinRange(planetPosition.z, 4, 6)) {
+        console.log(planetPosition.x)
         console.log("isWithinRange Evaluated as True");
         setShowModal(true);
       } else {
@@ -53,7 +54,7 @@ export default function Planet({distance, size, speed, color} : {distance:number
   });
 
   return (
-    <mesh ref={planetRef}>
+    <mesh ref={planetRef} position={[0,0,4]}>
       <sphereGeometry args={[size, 32, 32]} /> {/* Orbiting sphere */}
       <meshStandardMaterial color={color} />
       {/* Modal logic */}

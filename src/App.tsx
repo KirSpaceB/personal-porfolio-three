@@ -10,7 +10,7 @@ function App() {
       <div id="canvas-container">
         <Canvas
           camera={{
-            position:[-10,0,10],
+            position:[0,0,15],
             fov:90
           }}
         >
