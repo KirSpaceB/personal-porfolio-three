@@ -42,7 +42,7 @@ export default function Planet({distance, size, speed, color} : {distance:number
       const planetPosition = planetRef.current.position;
       
       // I have an idea why don't we just dynamically get the distance
-      if (isWithinRange(planetPosition.x, -1, 1) && isWithinRange(planetPosition.z, 4, 6)) {
+      if (isWithinRange(planetPosition.x, -1, 1) && isWithinRange(planetPosition.z, 2, 12)) {
         console.log(planetPosition.x)
         console.log("isWithinRange Evaluated as True");
         setShowModal(true);

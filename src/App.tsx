@@ -19,7 +19,9 @@ function App() {
           {/* First sphere (planet) */}
           <group>
             <CentralSphere/>
-            <Planet distance={5} size={4} color="blue" speed={1} /> {/* Planet 1 */}
+            <Planet distance={4} size={2} color="blue" speed={1} /> {/* Planet 1 */}
+            <Planet distance={6} size={2} color="blue" speed={2} /> {/* Planet 1 */}
+            <Planet distance={8} size={2} color="blue" speed={3} /> {/* Planet 1 */}
           </group>
         </Canvas>
       </div>
