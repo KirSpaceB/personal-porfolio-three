@@ -6,7 +6,14 @@ import '../css/PlanetModal.css';
 import * as THREE from 'three';
 import PlanetModal from './PlanetModal';
 
-export default function Planet({distance, size, speed, color} : {distance:number, size:number, speed:number, color:string}) {
+export default function Planet(
+  {distance, size, speed, color, differentAngle}
+   : 
+  { distance:number,
+    size:number,
+    speed:number,
+    color:string,
+    differentAngle:number}) {
   const planetRef = useRef<THREE.Mesh>(null);
   // Show modal when planet is closest to the camera
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -14,7 +21,6 @@ export default function Planet({distance, size, speed, color} : {distance:number
   const [targetRotation, setTargetRotation] = useState(0);
 
   const {camera} = useThree();
-  console.log(camera)
   console.log("Planet positiojn", planetRef.current?.position);
   console.log("distance from planet to camera", planetRef.current?.position.distanceTo(camera.position))
 
@@ -35,15 +41,21 @@ export default function Planet({distance, size, speed, color} : {distance:number
       // Smoothly transition from the current scrollPosition to the targetRotation
       setScrollPosition((prev) => THREE.MathUtils.lerp(prev, targetRotation, 0.1)); // Lerp for smoothness
       // Apply the updated rotation to the planet position
-      planetRef.current.position.x = distance * Math.sin(scrollPosition * speed); // X-axis rotation
-      planetRef.current.position.z = distance * Math.cos(scrollPosition * speed); // Z-axis rotation
+      //planetRef.current.position.x = distance * Math.sin(scrollPosition * speed); // X-axis rotation
+      //planetRef.current.position.z = distance * Math.cos(scrollPosition * speed); // Z-axis rotation
+      // Apply the updated rotation to the planet position, starting from its initial X position
+
+      // Apply the offset to the orbit's angular position (scrollPosition * speed)
+      const angle = scrollPosition * speed + differentAngle;
+      planetRef.current.position.x = distance * Math.sin(angle); // Dynamic X-axis movement
+      planetRef.current.position.z = distance * Math.cos(angle); // Z-axis movement
 
       // Calculate the distance from the planet to the camera
-      const planetPosition = planetRef.current.position;
+      const planetPos = planetRef.current.position;
       
       // I have an idea why don't we just dynamically get the distance
-      if (isWithinRange(planetPosition.x, -1, 1) && isWithinRange(planetPosition.z, 2, 12)) {
-        console.log(planetPosition.x)
+      if (isWithinRange(planetPos.x, -1, 1) && isWithinRange(planetPos.z, 2, 12)) {
+        console.log(planetPos.x)
         console.log("isWithinRange Evaluated as True");
         setShowModal(true);
       } else {
@@ -54,7 +66,7 @@ export default function Planet({distance, size, speed, color} : {distance:number
   });
 
   return (
-    <mesh ref={planetRef} position={[0,0,4]}>
+    <mesh ref={planetRef}>
       <sphereGeometry args={[size, 32, 32]} /> {/* Orbiting sphere */}
       <meshStandardMaterial color={color} />
       {/* Modal logic */}

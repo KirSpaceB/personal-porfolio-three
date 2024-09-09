@@ -19,9 +19,9 @@ function App() {
           {/* First sphere (planet) */}
           <group>
             <CentralSphere/>
-            <Planet distance={4} size={2} color="blue" speed={1} /> {/* Planet 1 */}
-            <Planet distance={6} size={2} color="blue" speed={2} /> {/* Planet 1 */}
-            <Planet distance={8} size={2} color="blue" speed={3} /> {/* Planet 1 */}
+            <Planet distance={4} size={2} color="blue" speed={1} differentAngle={0} />  {/* Planet 1 */}
+            <Planet distance={4} size={2} color="red" speed={1} differentAngle={Math.PI} />  {/* Planet 2, shifted by 60 degrees */}
+            <Planet distance={4} size={2} color="green" speed={1} differentAngle={Math.PI / 2} /> {/* Planet 3, shifted by 30 degrees */}
           </group>
         </Canvas>
       </div>
