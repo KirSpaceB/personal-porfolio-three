@@ -3,6 +3,7 @@ import "./App.css"
 import CentralSphere from './components/CentralSphere';
 import Planet from './components/Planet';
 import earthTexture from './public/textures/earth_texture.jpg'
+import StarField from './components/Starfield';
 
 function App() {
   return (
@@ -14,9 +15,17 @@ function App() {
             position:[0,0,15],
             fov:90
           }}
+          gl={{
+            antialias:true,
+            alpha:false,
+          }}
+          style={{background:'black'}}
         >
           <ambientLight intensity={7}/>
           <directionalLight position={[5,5,5]} intensity={6}/>
+
+          {/* Particle-based star field */}
+          <StarField count={5000} /> 
           {/* First sphere (planet) */}
           <group>
             <CentralSphere/>
