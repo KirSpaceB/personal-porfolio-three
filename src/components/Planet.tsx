@@ -1,4 +1,4 @@
-import { useFrame, useThree } from '@react-three/fiber';
+import { useFrame, useThree, useLoader } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import isWithinRange from '../tooling/isWithinRange';
@@ -7,12 +7,13 @@ import * as THREE from 'three';
 import PlanetModal from './PlanetModal';
 
 export default function Planet(
-  {distance, size, speed, color, differentAngle}
+  {distance, size, speed, color, texture, differentAngle}
    : 
   { distance:number,
     size:number,
     speed:number,
     color:string,
+    texture?:string | string[],
     differentAngle:number}) {
   const planetRef = useRef<THREE.Mesh>(null);
   // Show modal when planet is closest to the camera
@@ -23,6 +24,9 @@ export default function Planet(
   const {camera} = useThree();
   console.log("Planet positiojn", planetRef.current?.position);
   console.log("distance from planet to camera", planetRef.current?.position.distanceTo(camera.position))
+
+ // Check if texture is provided, else fallback to color material
+ const planetTexture = texture ? useLoader(THREE.TextureLoader, texture) : null;
 
   useEffect(() => {
     const handleScroll = (event:WheelEvent) => {
@@ -68,7 +72,7 @@ export default function Planet(
   return (
     <mesh ref={planetRef}>
       <sphereGeometry args={[size, 32, 32]} /> {/* Orbiting sphere */}
-      <meshStandardMaterial color={color} />
+      <meshStandardMaterial color={color} map={planetTexture}/>
       {/* Modal logic */}
       {/* Traditional modal */}
       <AnimatePresence>
