@@ -3,7 +3,7 @@ import "./App.css"
 import CentralSphere from './components/CentralSphere';
 import Planet from './components/Planet';
 import earthTexture from './public/textures/earth_texture.jpg'
-import StarField from './components/Starfield';
+import StarField from './components/StarField';
 
 function App() {
   return (
