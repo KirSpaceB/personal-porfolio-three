@@ -32,7 +32,7 @@ function App() {
           {/* First sphere (planet) */}
           <group>
             <CentralSphere/>
-            <Planet distance={6} size={2} color="white" speed={1} differentAngle={0} texture={earthTexture}/>  {/* Planet 1 */}
+            <Planet distance={6} size={2} color="white" speed={1} differentAngle={0} texture={earthTexture} UIRenderKey={1}/>  {/* Planet 1 */}
             <Planet distance={8} size={2} color="white" speed={1} differentAngle={Math.PI} texture={marsTexture} />  {/* Planet 2, shifted by 60 degrees */}
             <Planet distance={10} size={2} color="white" speed={1} differentAngle={Math.PI / 2} texture={jupiterTexture}/> {/* Planet 3, shifted by 30 degrees */}
             <Planet distance={4} size={2} color="white" speed={1} differentAngle={-Math.PI / 2} texture={mercuryTexture}/> {/* Planet 3, shifted by 30 degrees */}

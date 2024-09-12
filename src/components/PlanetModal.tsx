@@ -12,8 +12,11 @@ const modalStyles = {
   minHeight:'500px',
   textAlign: 'center',
 };
+interface PlanetModalProps {
+  UIRenderKey:number | undefined
+}
 
-export default function PlanetModal() {
+export default function PlanetModal({UIRenderKey} : PlanetModalProps) {
 
   const modalVariants = {
     hidden: { opacity: 0, scale: 0 },  // Start small and invisible
@@ -38,6 +41,7 @@ export default function PlanetModal() {
       >
         <h2>Project Section</h2>
         <p>This is a description of one of my projects.</p>
+        {UIRenderKey === 1 ? <div>Its the correct value</div> : <div>Wrong Value</div>}
       </motion.div>
     </Html>
   )

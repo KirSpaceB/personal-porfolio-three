@@ -7,13 +7,14 @@ import * as THREE from 'three';
 import PlanetModal from './PlanetModal';
 
 export default function Planet(
-  {distance, size, speed, color, texture, differentAngle}
+  {distance, size, speed, color, texture, differentAngle, UIRenderKey}
    : 
   { distance:number,
     size:number,
     speed:number,
     color:string,
     texture?:string | string[],
+    UIRenderKey?: number | undefined,
     differentAngle:number}) {
   const planetRef = useRef<THREE.Mesh>(null);
   // Show modal when planet is closest to the camera
@@ -68,7 +69,7 @@ export default function Planet(
 
     }
   });
-
+  // in order to represent a planet modal for each indivual planet, we can use keys passed down into the modal which will render different ui based on the keys, then we abstract each render
   return (
     <mesh ref={planetRef}>
       <sphereGeometry args={[size, 32, 32]} /> {/* Orbiting sphere */}
@@ -77,7 +78,7 @@ export default function Planet(
       {/* Traditional modal */}
       <AnimatePresence>
         {showModal && (
-          <PlanetModal key="planet-modal"/>
+          <PlanetModal key="planet-modal" UIRenderKey={UIRenderKey}/>
         )}
       </AnimatePresence>
     </mesh>
