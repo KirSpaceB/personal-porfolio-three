@@ -1,5 +1,6 @@
 import { Html } from "@react-three/drei"
 import {motion} from 'framer-motion'
+import '../css/PlanetModal.css'
 
 const modalStyles = {
   backgroundColor: 'rgba(0, 0, 0, 0.8)',
@@ -23,7 +24,7 @@ export default function PlanetModal() {
   return (
     <Html position={[0, 3, 0]}>
       <motion.div
-        style={modalStyles}
+        id="modalStyle"
         initial='hidden'
         exit='exit'
         animate='visible'
