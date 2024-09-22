@@ -1,6 +1,7 @@
 import { Html } from "@react-three/drei"
 import {motion} from 'framer-motion'
 import '../css/PlanetModal.css'
+import IntroductionSection from "./IntroductionSection";
 
 const modalStyles = {
   backgroundColor: 'rgba(0, 0, 0, 0.8)',
@@ -39,9 +40,7 @@ export default function PlanetModal({UIRenderKey} : PlanetModalProps) {
           duration: 0.6     // Duration of the entire animation
         }}
       >
-        <h2>Project Section</h2>
-        <p>This is a description of one of my projects.</p>
-        {UIRenderKey === 1 ? <div>Its the correct value</div> : <div>Wrong Value</div>}
+        {UIRenderKey === 1 ? <IntroductionSection/> : <div>Wrong Value</div>}
       </motion.div>
     </Html>
   )
