@@ -1,18 +1,18 @@
 import '../css/ProjectSection.css'
-import practiceImage from '../public/textures/Mars_Map.webp'
+import GISMap from '../public/GISMap.webp'
 export default function ProjectSection() {
   return (
     <>
       <h1>Project Section</h1>
       <div className="projectItem">
-        <a href="https://github.com/your-username/your-project" target="_blank" rel="noopener noreferrer">
+        <h2>Public Health Surveillance System</h2>
+        <a href="https://github.com/KirSpaceB/public-health-surveillence-system" target="_blank" rel="noopener noreferrer">
           <img 
-            src={practiceImage} 
+            src={GISMap} 
             alt="Project Thumbnail" 
             className="projectImage" 
           />
         </a>
-        <p>Check out my project on GitHub by clicking the image!</p>
       </div>
     </>
   )
