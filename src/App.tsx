@@ -50,20 +50,22 @@ function App() {
               UIRenderKey={2}
             />  {/* Planet 2, shifted by 60 degrees */}
             <Planet 
-              distance={10}
+              distance={9}
               size={2}
               color="white"
               speed={1}
               differentAngle={Math.PI}
               texture={jupiterTexture}
+              UIRenderKey={3}
             /> {/* Planet 3, shifted by 30 degrees */}
             <Planet 
-              distance={4}
+              distance={8}
               size={2}
               color="white"
               speed={1}
               differentAngle={-Math.PI / 2}
               texture={mercuryTexture}
+              UIRenderKey={4}
             /> {/* Planet 3, shifted by 30 degrees */}
 
           </group>

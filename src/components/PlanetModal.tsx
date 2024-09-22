@@ -3,6 +3,8 @@ import {motion} from 'framer-motion'
 import '../css/PlanetModal.css'
 import IntroductionSection from "./IntroductionSection";
 import ProjectSection from "./ProjectSection";
+import SkillsSection from "./SkillsSection";
+import ResearchSection from "./ResearchSection";
 
 const modalStyles = {
   backgroundColor: 'rgba(0, 0, 0, 0.8)',
@@ -46,6 +48,8 @@ export default function PlanetModal({UIRenderKey} : PlanetModalProps) {
       >
         {UIRenderKey == 1 ? <IntroductionSection/> : <div></div>}
         {UIRenderKey == 2 ? <ProjectSection/> : <div></div>}
+        {UIRenderKey == 3 ? <SkillsSection/> : <div></div>}
+        {UIRenderKey == 4 ? <ResearchSection/> : <div></div>}
       </motion.div>
     </Html>
   )
