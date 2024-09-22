@@ -8,21 +8,22 @@
   width: 250px; /* Ensures image scales consistently */
   height: 250px; /* Fixed height */
   border-radius: 50%;
-  margin-bottom: 20px;
   object-fit: cover; /* Ensures the image is cropped properly if needed */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .introText {
+  text-align: left; /* Aligns text to the left */
   font-size: 1.1rem;
   line-height: 1.6;
   color: #555;
   margin-bottom: 20px;
   padding: 0 20px;
-  max-width: 90%; /* Ensures the text is not too wide */
+  max-width: 90%; /* Optional: ensures text doesn't stretch too wide */
 }
 
 .additionalInfo {
+  text-wrap: wrap;
   text-align: left;
   font-size: 1rem;
   color: #444;
@@ -32,7 +33,12 @@
 }
 
 .additionalInfo p {
-  margin: 10px 0;
+  text-align: left;
+  font-size: 1rem;
+  color: #444;
+  width: 100%; /* Takes full width within the section */
+  max-width: 90%; /* Ensures text doesn't stretch too far */
+  margin: 0 auto; /* Centers the content */
 }
 
 strong {

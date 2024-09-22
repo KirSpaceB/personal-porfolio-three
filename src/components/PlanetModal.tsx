@@ -26,6 +26,9 @@ export default function PlanetModal({UIRenderKey} : PlanetModalProps) {
   };
 
   return (
+    // THIS HTML ELEMENT IS THE MODAL BEING RENDERED THE
+    // IF YOU WANT TO CHANGE THE POSITION OF THE MODAL BEING RENDER ON THE 3D PLANE
+    // YOU HAVE TO CHANGE THE POSITION PROPERTY
     <Html position={[0, 4, 3]}>
       <motion.div
         id="modalStyle"
