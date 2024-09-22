@@ -16,7 +16,7 @@ const modalStyles = {
 interface PlanetModalProps {
   UIRenderKey:number | undefined
 }
-
+// We need to figure out why the modal is rendering on the side rather then being center on the planet
 export default function PlanetModal({UIRenderKey} : PlanetModalProps) {
 
   const modalVariants = {
@@ -26,7 +26,7 @@ export default function PlanetModal({UIRenderKey} : PlanetModalProps) {
   };
 
   return (
-    <Html position={[0, 3, 0]}>
+    <Html position={[0, 4, 3]}>
       <motion.div
         id="modalStyle"
         initial='hidden'

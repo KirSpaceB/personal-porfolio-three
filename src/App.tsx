@@ -22,7 +22,6 @@ function App() {
             antialias:true,
             alpha:false,
           }}
-          style={{background:'black'}}
         >
           <ambientLight intensity={7}/>
           <directionalLight position={[5,5,5]} intensity={6}/>

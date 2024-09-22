@@ -1,5 +1,56 @@
-.introductionSectionProfilePicture {
-  max-width: 300;
-  max-height: 300px;
+.introductionSection h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
 
+.introductionSectionProfilePicture {
+  width: 250px; /* Ensures image scales consistently */
+  height: 250px; /* Fixed height */
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover; /* Ensures the image is cropped properly if needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.introText {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  max-width: 90%; /* Ensures the text is not too wide */
+}
+
+.additionalInfo {
+  text-align: left;
+  font-size: 1rem;
+  color: #444;
+  width: 100%; /* Takes full width within the section */
+  max-width: 90%; /* Ensures text doesn't stretch too far */
+  margin: 0 auto; /* Centers the content */
+}
+
+.additionalInfo p {
+  margin: 10px 0;
+}
+
+strong {
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .introductionSection {
+    max-width: 100%; /* Full width on smaller screens */
+    padding: 15px;
+  }
+
+  .introText, .additionalInfo {
+    max-width: 100%; /* Adjust to screen size */
+  }
+
+  .introductionSectionProfilePicture {
+    width: 120px; /* Smaller image on mobile screens */
+    height: 120px;
+  }
 }

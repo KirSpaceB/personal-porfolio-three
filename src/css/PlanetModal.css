@@ -1,10 +1,21 @@
 #modalStyle {
-  background-color: white;
-  color: black;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  min-width: 40vw;
-  min-height: 75vh;
+  background-color: #ffffff; /* A clean white background */
+  color: #333333; /* Dark text for better contrast */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Soft shadow for a smooth look */
+  width: 60vw; /* Responsive width based on viewport */
+  min-height: 50vh; /* Minimum height for modal content */
+  max-height: 90vh; /* Prevents overflowing beyond the screen */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  margin: auto;
+  animation: fadeIn 0.6s ease-in-out; /* Adds smooth fade-in effect */
 }
